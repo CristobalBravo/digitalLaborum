@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+		<!-- contenido -->
+	<div class="container">
+		<a class="btn btn-success" href="/cargo/crear"
+			style="text-align: right; align-items: flex-end;">Crear Cargo</a>
+		<br> <br>
+		<h3>Listado de Cargos</h3>
+		<hr>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripci&oacute;n</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cargo : ${cargos}">
+					<th th:text="${cargo.nombre}"></th>
+					<td th:text="${cargo.descripcion}"></td>
+					<td ><a th:href="@{/cargo/editar/}+${cargo.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/cargo/eliminar/}+${cargo.id}" class="btn btn-danger">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
