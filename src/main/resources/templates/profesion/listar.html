@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+		<!-- contenido -->
+	<div class="container">
+		<a class="btn btn-success" href="/profesion/crear"
+			style="text-align: right; align-items: flex-end;">Crear Profesion</a>
+		<br> <br>
+		<h3>Listado de Profesiones</h3>
+		<hr>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripci&oacute;n</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="profesion : ${profesiones}">
+					<th th:text="${profesion.nombre}"></th>
+					<td th:text="${profesion.descripcion}"></td>
+					<td ><a th:href="@{/profesion/editar/}+${profesion.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/profesion/eliminar/}+${profesion.id}" class="btn btn-danger">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
