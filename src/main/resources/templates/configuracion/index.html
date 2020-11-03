@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container">
+<h3>Listado de opciones a configurar</h3>
+<hr>
+<br>
+<div class="list-group">
+  <a th:href="@{/categoria/}" class="list-group-item list-group-item-action">Categorias</a>
+  <a th:href="@{/cargo/}" class="list-group-item list-group-item-action">Cargo</a>
+  <a th:href="@{/jornadaLaboral/}" class="list-group-item list-group-item-action">Jornada Laboral</a>
+  <a th:href="@{/nivelEducacional/}" class="list-group-item list-group-item-action">Nivel Educacional</a>
+  <a th:href="@{/profesion/}"  class="list-group-item list-group-item-action">Profesion</a>
+</div>
+
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
