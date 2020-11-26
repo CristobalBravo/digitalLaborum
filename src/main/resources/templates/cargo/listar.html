@@ -3,13 +3,26 @@
 <head th:replace="layout/layout :: head"></head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
-		<!-- contenido -->
+	<!-- contenido -->
 	<div class="container">
 		<a class="btn btn-success" href="/cargo/crear"
-			style="text-align: right; align-items: flex-end;">Crear Cargo</a>
-		<br> <br>
+			style="text-align: right; align-items: flex-end;">Crear Cargo</a> <br>
+		<br>
 		<h3>Listado de Cargos</h3>
 		<hr>
+		<form th:action="@{/cargo/buscar}" method="post">
+			<div class="row">
+				<div class="col-6"></div>
+				<div class="col-4">
+					<input type="text" class="form-control" name="nombre" id="nombre"
+						placeholder="Ingrese el nombre">
+				</div>
+				<div class="col-2">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+				</div>
+			</div>
+		</form>
+
 		<br>
 		<table class="table">
 			<thead>
@@ -25,12 +38,14 @@
 				<tr th:each="cargo : ${cargos}">
 					<th th:text="${cargo.nombre}"></th>
 					<td th:text="${cargo.descripcion}"></td>
-					<td ><a th:href="@{/cargo/editar/}+${cargo.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/cargo/eliminar/}+${cargo.id}" class="btn btn-danger">Eliminar</a></td>
+					<td><a th:href="@{/cargo/editar/}+${cargo.id}"
+						class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/cargo/eliminar/}+${cargo.id}"
+						class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-<footer th:replace="layout/layout :: footer"></footer>
+	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>
