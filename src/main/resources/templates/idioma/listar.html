@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+		<!-- contenido -->
+	<div class="container">
+		<a class="btn btn-success" href="/idioma/crear"
+			style="text-align: right; align-items: flex-end;">Crear Idioma</a>
+		<br> <br>
+		<h3>Listado de Idiomas</h3>
+		<hr>
+				<form th:action="@{/idioma/buscar}" method="post">
+			<div class="row">
+				<div class="col-6"></div>
+				<div class="col-4">
+					<input type="text" class="form-control" name="nombre" id="nombre"
+						placeholder="Ingrese el nombre">
+				</div>
+				<div class="col-2">
+					<button type="submit" class="btn btn-primary">Buscar</button>
+				</div>
+			</div>
+		</form>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripci&oacute;n</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="idiomas : ${idiomas}">
+					<th th:text="${idiomas.nombre}"></th>
+					<td th:text="${idiomas.descripcion}"></td>
+					<td ><a th:href="@{/idioma/editar/}+${idiomas.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/idioma/eliminar/}+${idiomas.id}" class="btn btn-danger">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+	</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
