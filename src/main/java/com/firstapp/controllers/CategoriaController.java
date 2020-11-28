@@ -14,7 +14,7 @@ import com.firstapp.models.Categoria;
 import com.firstapp.repo.ICategoriaRepo;
 
 @Controller
-@RequestMapping("/categoria")
+@RequestMapping("/configuracion/categoria")
 public class CategoriaController {
 	
 	@Autowired
