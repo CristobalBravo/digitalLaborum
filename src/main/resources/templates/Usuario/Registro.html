@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/StyleRegistro.css}">
+<script type="text/javascript" th:src="@{/js/Registro.js}"></script>
+<head>
+<meta charset="UTF-8">
+<title>DL/Registro</title>
+</head>
+<body>
+	<div class="container">
+		<h1>
+			<img
+				src="https://www.nicepng.com/png/detail/282-2826563_computer-clipart-thumbs-up-person-on-computer-png.png"
+				id="icon" alt="User Icon" /> Digital Laborum
+		</h1>
+		<div class="row jumbotron">
+			<form action="#" th:action="@{/registro/}" th:object="${usuario}"
+				id="formulario" method="post">
+
+				<div class="col-sm-12 form-group">
+					<label for="name-f">Username</label> <input type="text"
+						th:field="*{user_name}" name="user_name" class="form-control"
+						id="user_name" placeholder="Ingresa tu nickname" required>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label for="name-l">Contraseña</label> <input type="password"
+						th:field="*{password}" name="password" class="form-control"
+						id="pwd1" placeholder="Ingrese su contraseña" required>
+				</div>
+				<div class="col-sm-6 form-group">
+					<label for="email">Confirmar Contraseña </label> <input
+						type="password" class="form-control" id="pwd2"
+						placeholder="Re-ingrese su contraseña" required>
+				</div>
+				<div id="coincidencia" class="text-center"></div>
+				<br>
+				<div class="col-sm-12 form-group">
+					<label for="exampleFormControlSelect1">Me quiero registrar
+						como: </label> <select class="form-control" id="rol" th:field="*{rol}">
+						<option th:value=2>Empleador</option>
+						<option th:value=3>Colaborador</option>
+					</select>
+				</div>
+				<div class="col-sm-12 form-group mb-0">
+					<button class="btn btn-primary btn-block" type="button" onclick="validacionPwd()"
+						>Registrar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
