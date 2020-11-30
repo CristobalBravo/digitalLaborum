@@ -49,7 +49,7 @@ public class Idioma {
 
 	@Override
 	public String toString() {
-		return "Idioma [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+		return "Idioma [id="+"" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
 	}
 	
 	
