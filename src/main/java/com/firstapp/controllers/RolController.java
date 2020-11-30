@@ -15,7 +15,7 @@ import com.firstapp.models.Rol;
 import com.firstapp.repo.IRolRepo;
 
 @Controller
-@RequestMapping("/rol")
+@RequestMapping("/configuracion/rol")
 public class RolController {
 
 	@Autowired

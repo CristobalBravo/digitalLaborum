@@ -16,7 +16,7 @@ import com.firstapp.models.LenguajeProgramacion;
 import com.firstapp.repo.ILenguajeProgramacionRepo;
 
 @Controller
-@RequestMapping("/lenguajeProgramacion")
+@RequestMapping("/configuracion/lenguajeProgramacion")
 public class LenguajeProgramacionController {
 
 	@Autowired

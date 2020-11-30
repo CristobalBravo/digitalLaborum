@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+				<br> <a class="btn btn-primary" href="/empleador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+				<div class="row">
+					<div class="col text-center">
+						<h1 th:text="${titulo}">></h1>
+					</div>
+				</div>
+				<form th:action="@{/empleador/}" th:object="${empleador}" method="post">
+				<input type="hidden" th:field="*{id}">
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Nombre: </label> <input type="text" class="form-control"
+							th:field="*{nombre}" name="nombre"
+								placeholder="Digital Laborum">
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Rut: </label> <input type="text" class="form-control"
+							th:field="*{rut}" name="rut"
+								placeholder="76.111.111-1">
+						</div>
+						<div class="col">
+							<label>Razon social: </label> <input type="text"
+							th:field="*{razon_social}" name="razon_social"
+								class="form-control" placeholder="Informatica">
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Correo Electronico: </label> <input type="email"
+							th:field="*{email}" name="email"
+								class="form-control" placeholder="digitalLaborum@email.com">
+						</div>
+						<div class="col">
+							<label>Direccion: </label> <input type="text"
+							th:field="*{direccion}" name="direccion"
+								class="form-control" placeholder="Santiago 235">
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Descripcion: </label>
+							<textarea class="form-control" th:field="*{descripcion}" name="descripcion"></textarea>
+						</div>
+					</div>
+					<button class="btn btn-primary mt-4">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

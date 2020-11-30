@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.firstapp.models.NivelEducacional;
 import com.firstapp.repo.INivelEducacionRepo;
 @Controller
-@RequestMapping("/nivelEducacional")
+@RequestMapping("/configuracion/nivelEducacional")
 public class NivelEducacionalController {
 
 	@Autowired

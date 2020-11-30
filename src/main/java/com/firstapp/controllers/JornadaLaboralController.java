@@ -15,7 +15,7 @@ import com.firstapp.models.JornadaLaboral;
 import com.firstapp.repo.IJornadaLaboralRepo;
 
 @Controller
-@RequestMapping("/jornadaLaboral")
+@RequestMapping("/configuracion/jornadaLaboral")
 public class JornadaLaboralController {
 	
 	@Autowired

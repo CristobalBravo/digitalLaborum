@@ -15,7 +15,7 @@ import com.firstapp.models.Cargo;
 import com.firstapp.repo.ICargoRepo;
 
 @Controller
-@RequestMapping("/cargo")
+@RequestMapping("/configuracion/cargo")
 public class CargoController {
 	
 	@Autowired

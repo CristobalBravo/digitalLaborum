@@ -16,7 +16,7 @@ import com.firstapp.repo.IIdiomaRepo;
 
 
 	@Controller
-	@RequestMapping("/idioma")
+	@RequestMapping("/configuracion/idioma")
 	public class IdiomaController {
 
 		@Autowired

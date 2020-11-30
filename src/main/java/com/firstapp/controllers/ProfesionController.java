@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.firstapp.models.Profesion;
 import com.firstapp.repo.IProfesionRepo;
 @Controller
-@RequestMapping("/profesion")
+@RequestMapping("/configuracion/profesion")
 public class ProfesionController {
 
 	@Autowired
