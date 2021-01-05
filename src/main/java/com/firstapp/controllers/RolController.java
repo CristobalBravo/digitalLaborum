@@ -38,13 +38,13 @@ public class RolController {
 	@PostMapping("/")
 	public String guardar(Model model, Rol rol) {
 		rolrepo.save(rol);
-		return "redirect:/rol/";
+		return "redirect:/configuracion/rol/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		rolrepo.deleteById(id);
-		return "redirect:/rol/";
+		return "redirect:/configuracion/rol/";
 	}
 	
 	@GetMapping("/editar/{id}")

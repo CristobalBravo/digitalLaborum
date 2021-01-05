@@ -5,12 +5,12 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/rol/crear"
+		<a class="btn btn-success" href="/configuracion/rol/crear"
 			style="text-align: right; align-items: flex-end;">Crear Rol</a>
 		<br> <br>
 		<h3>Listado de Roles</h3>
 		<hr>
-				<form th:action="@{/rol/buscar}" method="post">
+				<form th:action="@{/configuracion/rol/buscar}" method="post">
 			<div class="row">
 				<div class="col-6"></div>
 				<div class="col-4">
@@ -37,8 +37,8 @@
 				<tr th:each="rol : ${roles}">
 					<th th:text="${rol.nombre}"></th>
 					<td th:text="${rol.descripcion}"></td>
-					<td ><a th:href="@{/rol/editar/}+${rol.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/rol/eliminar/}+${rol.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/rol/editar/}+${rol.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/rol/eliminar/}+${rol.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>

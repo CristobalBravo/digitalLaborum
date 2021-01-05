@@ -36,13 +36,13 @@ public class ProfesionController {
 	@PostMapping("/")
 	public String guardar(Model model, Profesion profesion) {
 		profesionRepo.save(profesion);
-		return "redirect:/profesion/";
+		return "redirect:/configuracion/profesion/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		profesionRepo.deleteById(id);
-		return "redirect:/profesion/";
+		return "redirect:/configuracion/profesion/";
 	}
 	
 	@GetMapping("/editar/{id}")

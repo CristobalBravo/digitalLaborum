@@ -39,13 +39,13 @@ public class LenguajeProgramacionController {
 	@PostMapping("/")
 	public String guardar(Model model, LenguajeProgramacion lenguajeProgramacion) {
 		lenguajeProgramacionRepo.save(lenguajeProgramacion);
-		return "redirect:/lenguajeProgramacion/";
+		return "redirect:/configuracion/lenguajeProgramacion/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		lenguajeProgramacionRepo.deleteById(id);
-		return "redirect:/lenguajeProgramacion/";
+		return "redirect:/configuracion/lenguajeProgramacion/";
 	}
 	
 	@GetMapping("/editar/{id}")
