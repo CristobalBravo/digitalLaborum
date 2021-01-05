@@ -37,13 +37,13 @@ public class CategoriaController {
 	@PostMapping("/")
 	public String guardar(Model model, Categoria categoria) {
 		categoriaRepo.save(categoria);
-		return "redirect:/categoria/";
+		return "redirect:/configuracion/categoria/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		categoriaRepo.deleteById(id);
-		return "redirect:/categoria/";
+		return "redirect:/configuracion/categoria/";
 	}
 	
 	@GetMapping("/editar/{id}")

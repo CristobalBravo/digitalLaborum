@@ -5,12 +5,12 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/profesion/crear"
+		<a class="btn btn-success" href="/configuracion/profesion/crear"
 			style="text-align: right; align-items: flex-end;">Crear Profesion</a>
 		<br> <br>
 		<h3>Listado de Profesiones</h3>
 		<hr>
-				<form th:action="@{/profesion/buscar}" method="post">
+				<form th:action="@{/configuracion/profesion/buscar}" method="post">
 			<div class="row">
 				<div class="col-6"></div>
 				<div class="col-4">
@@ -37,8 +37,8 @@
 				<tr th:each="profesion : ${profesiones}">
 					<th th:text="${profesion.nombre}"></th>
 					<td th:text="${profesion.descripcion}"></td>
-					<td ><a th:href="@{/profesion/editar/}+${profesion.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/profesion/eliminar/}+${profesion.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/profesion/editar/}+${profesion.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/profesion/eliminar/}+${profesion.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>

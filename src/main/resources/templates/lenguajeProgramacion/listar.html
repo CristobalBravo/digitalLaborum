@@ -5,12 +5,12 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/lenguajeProgramacion/crear"
+		<a class="btn btn-success" href="/configuracion/lenguajeProgramacion/crear"
 			style="text-align: right; align-items: flex-end;">Crear Lenguaje</a>
 		<br> <br>
 		<h3>Listado de Lenguajes de programacion</h3>
 		<hr>
-				<form th:action="@{/lenguajeProgramacion/buscar}" method="post">
+				<form th:action="@{/configuracion/lenguajeProgramacion/buscar}" method="post">
 			<div class="row">
 				<div class="col-6"></div>
 				<div class="col-4">
@@ -37,8 +37,8 @@
 				<tr th:each="lenguajes: ${lenguajeProgramacion}">
 					<th th:text="${lenguajes.nombre}"></th>
 					<td th:text="${lenguajes.descripcion}"></td>
-					<td ><a th:href="@{/lenguajeProgramacion/editar/}+${lenguajes.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/lenguajeProgramacion/eliminar/}+${lenguajes.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/lenguajeProgramacion/editar/}+${lenguajes.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/lenguajeProgramacion/eliminar/}+${lenguajes.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
