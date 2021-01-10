@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Datos del Colaborador</div>
+							<div class="col-6 text-right">
+								<a type="button" th:href="@{/colaborador/crear}"
+									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomName}"></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<ul th:if="${mostrar!=false}">
+							<li>Nombre: <label th:text="${colaborador.nombre}" ></label></li>
+							<li>Apellido: <label th:text="${colaborador.apellido}" ></label></li>
+							<li>Run: <label th:text="${colaborador.run}" ></label></li>
+							<li>Telefono: <label th:text="${colaborador.numero_telefono}" ></label></li>
+							<li>Correo Electronico: <label th:text="${colaborador.correo}" ></label></li>
+							</ul>
+							<span th:if="${mostrar==false}">Inicia ingresando tus datos personales :)</span>
+					</div>
+				</div>
+				<br>
+				<div class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Profesiones del colaborador</div>
+							<div class="col-6 text-right">
+								<a type="button" th:href="@{/colaborador/crear/profesion}"
+									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomName}"></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<ul th:if="${mostrarProfesiones!=false}" th:each="profesion: ${profesiones}">
+							<li>Profesion: <label th:text="${profesion.nombre}" ></label></li>
+							</ul>
+							<span th:if="${mostrarProfesiones==false}">Ingrese sus profesiones :)</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+				<br> <a class="btn btn-primary" href="/colaborador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+				<div class="row">
+					<div class="col text-center">
+						<h1 th:text="${titulo}">></h1>
+					</div>
+				</div>
+				<form th:action="@{/colaborador/}" th:object="${colaborador}" method="post">
+				<input type="hidden" th:field="*{id}">
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Nombre: </label> <input type="text" class="form-control"
+							th:field="*{nombre}" name="nombre"
+								placeholder="John DL">
+						</div>
+						<div class="col">
+							<label>Apellido: </label> <input type="text" class="form-control"
+							th:field="*{apellido}" name="apellido"
+								placeholder="Doe DL">
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Rut: </label> <input type="text" class="form-control"
+							th:field="*{run}" name="run"
+								placeholder="20.659.146-K">
+						</div>
+						<div class="col">
+							<label>Numero Telefonico: </label> <input type="tel"
+							th:field="*{numero_telefono}" name="numero_telefono"
+								class="form-control" placeholder="954612378">
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Correo Electronico: </label> <input type="email"
+							th:field="*{correo}" name="correo"
+								class="form-control" placeholder="digitalLaborum@email.com">
+						</div>
+					</div>
+					<button class="btn btn-primary mt-4">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

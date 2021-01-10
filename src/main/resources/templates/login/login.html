@@ -4,7 +4,7 @@
 
 <head>
 <title>Login</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -16,26 +16,26 @@
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="https://www.nicepng.com/png/detail/282-2826563_computer-clipart-thumbs-up-person-on-computer-png.png" id="icon" alt="User Icon" />
-      <h1>Digital Laborum</h1>
+      <img style="margin:10px"; src="https://jsm-consultoria-tecnologica.es/wp-content/uploads/2019/03/icono-servicios-informatica-para-empresas-jsm.png" id="icon" alt="User Icon" />
+      <h1 style="color:#78c2ad;">Digital Laborum</h1>
     </div>
 
     <!-- Login Form -->
     <form th:action="@{/login}" method="post">
       <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Ingresar">
+      <input style="background-color:#78c2ad;" type="submit" class="fadeIn fourth" value="Ingresar">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" th:href="@{/registro/}">Registrarse</a>
+      <a style="color:#78c2ad"; class="underlineHover" th:href="@{/registro/}">Registrarse</a>
     </div>
-    <div th:if="${param.error}" class="alert alert-danger fadeIn fourth"  role="alert">
-    	Credenciales no valida
+    <div style="background-color:#ff7851"; th:if="${param.error}" class="alert alert-danger fadeIn fourth"  role="alert">
+    	Credenciales no válidas
     </div>
-    <div th:if="${param.logout}" class="alert alert-success" role="alert">
-    	Cerrado de sesion exitoso
+    <div style="background-color:#56cc9d"; th:if="${param.logout}" class="alert alert-success" role="alert">
+    	Cerrado de sesión exitoso
     </div>
 
   </div>

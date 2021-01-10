@@ -4,8 +4,14 @@
 <body>
 	<header th:replace="layout/layout :: header"></header>
 	<div class="container">
-		<a class="btn btn-primary" href="/categoria/"
-			style="text-align: right; align-items: flex-end;">Volver</a> <br>
+		<div class="row"> 
+			<div class="col">
+				<br> <a class="btn btn-outline-primary" href="/empleador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+			</div>
+		</div>
+		<br>
 		<br>
 		<h3 th:text="${titulo}"></h3>
 		<hr>
@@ -19,7 +25,7 @@
 					required="required">
 			</div>
 			<div class="form-group">
-				<label for="exampleFormControlTextarea1">Descripcion</label>
+				<label for="exampleFormControlTextarea1">Descripción</label>
 				<textarea class="form-control" name="descripcion" id="descripcion"
 					th:field="*{descripcion}" rows="3" required="required"></textarea>
 			</div>

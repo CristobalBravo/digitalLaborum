@@ -7,13 +7,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="card">
+				<div class="card border-primary mb-3 ">
 					<div class="card-header">
 						<div class="row">
 							<div class="col-6">Datos del Empleador</div>
 							<div class="col-6 text-right">
 								<a type="button" th:href="@{/empleador/crear}"
-									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomName}"></a>
+									class="btn btn-primary" th:text="${bottomName}"></a>
 							</div>
 						</div>
 					</div>
@@ -21,10 +21,10 @@
 						<ul th:if="${mostrar!=false}">
 							<li>Nombre: <label th:text="${empleador.nombre}" ></label></li>
 							<li>Rut: <label th:text="${empleador.rut}" ></label></li>
-							<li>Razon social: <label th:text="${empleador.razon_social}" ></label></li>
-							<li>Direccion: <label th:text="${empleador.direccion}" ></label></li>
-							<li>Correo Electronico: <label th:text="${empleador.email}" ></label></li>
-							<li>Descripcion: <label th:text="${empleador.descripcion}" ></label></li>
+							<li>Razón social: <label th:text="${empleador.razon_social}" ></label></li>
+							<li>Dirección: <label th:text="${empleador.direccion}" ></label></li>
+							<li>Correo Electrónico: <label th:text="${empleador.email}" ></label></li>
+							<li>Descripción: <label th:text="${empleador.descripcion}" ></label></li>
 							</ul>
 							<span th:if="${mostrar==false}">Inicia ingresando los datos de tu empresa :)</span>
 					</div>

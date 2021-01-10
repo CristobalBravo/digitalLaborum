@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -16,43 +14,60 @@
 	<div class="container">
 		<h1>
 			<img
-				src="https://www.nicepng.com/png/detail/282-2826563_computer-clipart-thumbs-up-person-on-computer-png.png"
+				src="https://jsm-consultoria-tecnologica.es/wp-content/uploads/2019/03/icono-servicios-informatica-para-empresas-jsm.png"
 				id="icon" alt="User Icon" /> Digital Laborum
 		</h1>
-		<div class="row jumbotron">
-			<form action="#" th:action="@{/registro/}" th:object="${usuario}"
-				id="formulario" method="post">
-
-				<div class="col-sm-12 form-group">
-					<label for="name-f">Username</label> <input type="text"
-						th:field="*{user_name}" name="user_name" class="form-control"
-						id="user_name" placeholder="Ingresa tu nickname" required>
-				</div>
-				<div class="col-sm-6 form-group">
-					<label for="name-l">Contraseña</label> <input type="password"
-						th:field="*{password}" name="password" class="form-control"
-						id="pwd1" placeholder="Ingrese su contraseña" required>
-				</div>
-				<div class="col-sm-6 form-group">
-					<label for="email">Confirmar Contraseña </label> <input
-						type="password" class="form-control" id="pwd2"
-						placeholder="Re-ingrese su contraseña" required>
-				</div>
-				<div id="coincidencia" class="text-center"></div>
+		<div class="col">
+				<br> <a class="btn btn-outline-primary" href="/login/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
 				<br>
-				<div class="col-sm-12 form-group">
-					<label for="exampleFormControlSelect1">Me quiero registrar
-						como: </label> <select class="form-control" id="rol" th:field="*{rol}">
-						<option value="3">Empleador</option>
-						<option value="2">Colaborador</option>
-					</select>
-				</div>
-				<div class="col-sm-12 form-group mb-0">
-					<button class="btn btn-primary btn-block" type="button" onclick="validacionPwd()"
-						>Registrar</button>
-				</div>
-			</form>
+			</div>
+		<div class="row">
+			<div class="col">
+				<div class="card border-success mt-3">
+			        <div class="card-header">Registro de Usuario</div>
+			        <div class="card-body">
+			        	<div class="row justify-content-center">
+							<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+							<form action="#" th:action="@{/registro/}" th:object="${usuario}"
+								id="formulario" method="post">
+				
+								<div class="row align-items-center mt-4">
+									<label for="name-f">Username</label> <input type="text"
+										th:field="*{user_name}" name="user_name" class="form-control"
+										id="user_name" placeholder="Ingresa tu nickname" required>
+								</div>
+								<div class="row align-items-center mt-4">
+									<label for="name-l">Contraseña</label> <input type="password"
+										th:field="*{password}" name="password" class="form-control"
+										id="pwd1" placeholder="Ingrese su contraseña" required>
+								</div>
+								<div class="row align-items-center mt-4">
+									<label for="email">Confirmar Contraseña </label> <input
+										type="password" class="form-control" id="pwd2"
+										placeholder="Re-ingrese su contraseña" required>
+								</div>
+								<div id="coincidencia" class="text-center"></div>
+								<div class="row align-items-center mt-4">
+									<label for="exampleFormControlSelect1">Me quiero registrar
+										como: </label> <select class="form-control" id="rol" th:field="*{rol}">
+										<option value="3">Empleador</option>
+										<option value="2">Colaborador</option>
+									</select>
+								</div>
+								<br>
+								<div class="row align-items-center mt-4">
+									<button class="btn btn-primary btn-block" type="button" onclick="validacionPwd()"
+										>Registrar</button>
+								</div>
+							</form>
+							</div>
+						</div>
+			        </div>
+		        </div>
+			</div>
 		</div>
+		
 	</div>
 
 </body>
