@@ -39,7 +39,7 @@ import com.firstapp.repo.IIdiomaRepo;
 		@PostMapping("/")
 		public String guardar(Model model, Idioma idioma) {
 			idiomaRepo.save(idioma);
-			return "redirect:/idioma/";
+			return "redirect:/configuracion/idioma/";
 		}
 		
 		@GetMapping("/eliminar/{id}")

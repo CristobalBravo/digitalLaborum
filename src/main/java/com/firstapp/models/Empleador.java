@@ -1,5 +1,7 @@
 package com.firstapp.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,10 +30,13 @@ public class Empleador {
 	@JoinColumn(name = "usuario_id", nullable = false)
 	private Usuario usuario;
 	
+	@OneToMany( mappedBy = "empleador")
+	private List<OfertaLaboral> OfertasLaborales;
+	
 	public Empleador() {
 		
 	}
-	
+
 	public Empleador(int id, String nombre, String rut, String razon_social, String descripcion, String direccion,
 			String email, Usuario usuario) {
 		this.id = id;
@@ -42,6 +49,13 @@ public class Empleador {
 		this.usuario = usuario;
 	}
 
+	public List<OfertaLaboral> getOfertasLaborales() {
+		return OfertasLaborales;
+	}
+
+	public void setOfertasLaborales(List<OfertaLaboral> ofertasLaborales) {
+		OfertasLaborales = ofertasLaborales;
+	}
 
 	public int getId() {
 		return id;

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+		<h3>Listado de ofertas laborales</h3>
+		<hr>
+		<br>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Cargo</th>
+					<th>postular</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ofertaLaboral : ${ofertasLaborales}">
+					<th th:text="${ofertaLaboral.nombre}"></th>
+					<td th:text="${ofertaLaboral.cargo.nombre}"></td>
+					<td><a
+						th:href="@{/ofertaLaboral/postular/}+${ofertaLaboral.id}"
+						class="btn btn-info">postular</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

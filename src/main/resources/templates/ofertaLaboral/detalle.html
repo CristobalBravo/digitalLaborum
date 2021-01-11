@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Detalle de la oferta laboral</div>
+							<div class="col-6 text-right">
+								<a type="button" th:href="@{/empleador/}"
+									class="btn btn-outline-primary btn-sm mt-10"
+									>volver</a>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<ul >
+							<li>Nombre: <label th:text="${ofertaLaboral.nombre}"></label></li>
+							<li>Cargo: <label th:text="${cargo}"></label></li>
+							<li>Categoria: <label th:text="${categoria}"></label></li>
+							<li>Descripcion: <label th:text="${ofertaLaboral.descripcion}"></label></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
