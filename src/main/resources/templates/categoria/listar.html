@@ -5,12 +5,12 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/categoria/crear"
+		<a class="btn btn-success" href="/configuracion/categoria/crear"
 			style="text-align: right; align-items: flex-end;">Crear Categoria</a>
 		<br> <br>
 		<h3>Listado de Categoria</h3>
 		<hr>
-				<form th:action="@{/categoria/buscar}" method="post">
+				<form th:action="@{/configuracion/categoria/buscar}" method="post">
 			<div class="row">
 				<div class="col-6"></div>
 				<div class="col-4">
@@ -37,8 +37,8 @@
 				<tr th:each="categoria : ${categorias}">
 					<th th:text="${categoria.nombre}"></th>
 					<td th:text="${categoria.descripcion}"></td>
-					<td ><a th:href="@{/categoria/editar/}+${categoria.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/categoria/eliminar/}+${categoria.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/categoria/editar/}+${categoria.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/categoria/eliminar/}+${categoria.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>
