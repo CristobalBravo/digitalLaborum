@@ -5,11 +5,15 @@
 	<header th:replace="layout/layout :: header"></header>
 	<!-- contenido -->
 	<div class="container">
+		<div class="row"> 
+			<div class="col">
+				<a class="btn btn-outline-primary" href="/colaborador/"
+					style="text-align: right; align-items: flex-end;">Volver</a>
+			</div>
+		</div>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
-				<br> <a class="btn btn-primary" href="/colaborador/"
-					style="text-align: right; align-items: flex-end;">Volver</a> <br>
-				<br>
+				
 				<div class="row">
 					<div class="col text-center">
 						<h1 th:text="${titulo}">></h1>
@@ -48,7 +52,8 @@
 								class="form-control" placeholder="digitalLaborum@email.com">
 						</div>
 					</div>
-					<button class="btn btn-primary mt-4">Guardar</button>
+					<br>
+					<button class="btn btn-primary btn-lg btn-block" >Guardar</button>
 				</form>
 			</div>
 		</div>

@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/layout :: head"></head>
 <body>
 	<header th:replace="layout/layout :: header"></header>
 	<!-- contenido -->
+	<div class=container>
+		<div class="jumbotron">
+                <h1 class="display-4">Bienvenido a DigitalLaborum</h1>
+                <p class="lead" sec:authorize="hasAnyRole('EMPLEADOR')">Esta es tu plataforma de empleador.</p>
+                <p class="lead" sec:authorize="hasAnyRole('ADMIN')">Esta es tu plataforma de admin.</p>
+                <p class="lead" sec:authorize="hasAnyRole('COLABORADOR')">Esta es tu plataforma de colaborador.</p>
+                <hr class="my-4">
+                
+              </div>
+	</div>
 	<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

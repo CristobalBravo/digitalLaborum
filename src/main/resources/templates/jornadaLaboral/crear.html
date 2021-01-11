@@ -4,12 +4,12 @@
 <body>
 	<header th:replace="layout/layout :: header"></header>
 	<div class="container">
-		<a class="btn btn-primary" href="/jornadaLaboral/"
+		<a class="btn btn-primary" href="/configuracion/jornadaLaboral/"
 			style="text-align: right; align-items: flex-end;">Volver</a> <br>
 		<br>
 		<h3 th:text="${titulo}"></h3>
 		<hr>
-		<form action="#" th:action="@{/jornadaLaboral/}"
+		<form action="#" th:action="@{/configuracion/jornadaLaboral/}"
 			th:object="${jornadaLaboral}" method="post">
 			<div class="form-group">
 				<input type="hidden" th:field="*{id}"> <label

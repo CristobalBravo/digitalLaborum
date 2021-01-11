@@ -207,7 +207,7 @@ public class ColaboradorController {
 		Profesion profesion = new Profesion();
 		model.addAttribute("profesiones", profesiones);
 		model.addAttribute("profesion", profesion);
-		model.addAttribute("titulo","Seleccione profesion");
+		model.addAttribute("titulo","Seleccione profesión");
 	}
 	
 	private void vistaCVAgregar(Model model) {

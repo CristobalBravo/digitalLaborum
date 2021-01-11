@@ -5,12 +5,12 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/nivelEducacional/crear"
+		<a class="btn btn-success" href="/configuracion/nivelEducacional/crear"
 			style="text-align: right; align-items: flex-end;">Crear Nivel Eduacional</a>
 		<br> <br>
 		<h3>Listado de Niveles Educacionales</h3>
 		<hr>
-				<form th:action="@{/nivelEducacional/buscar}" method="post">
+				<form th:action="@{/configuracion/nivelEducacional/buscar}" method="post">
 			<div class="row">
 				<div class="col-6"></div>
 				<div class="col-4">
@@ -37,8 +37,8 @@
 				<tr th:each="nivelEducacional : ${nivelesEducacionales}">
 					<th th:text="${nivelEducacional.nombre}"></th>
 					<td th:text="${nivelEducacional.descripcion}"></td>
-					<td ><a th:href="@{/nivelEducacional/editar/}+${nivelEducacional.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/nivelEducacional/eliminar/}+${nivelEducacional.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/nivelEducacional/editar/}+${nivelEducacional.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/nivelEducacional/eliminar/}+${nivelEducacional.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>

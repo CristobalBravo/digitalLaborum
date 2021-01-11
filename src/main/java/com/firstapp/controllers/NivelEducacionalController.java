@@ -37,13 +37,13 @@ public class NivelEducacionalController {
 	@PostMapping("/")
 	public String guardar(Model model,NivelEducacional nivelEduacional) {
 		nivelEduacionalRepo.save(nivelEduacional);
-		return "redirect:/nivelEducacional/";
+		return "redirect:/configuracion/nivelEducacional/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		nivelEduacionalRepo.deleteById(id);
-		return "redirect:/nivelEducacional/";
+		return "redirect:/configuracion/nivelEducacional/";
 	}
 	
 	@GetMapping("/editar/{id}")
