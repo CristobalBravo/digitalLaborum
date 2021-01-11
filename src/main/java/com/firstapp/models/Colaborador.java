@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.ManyToAny;
@@ -43,6 +44,9 @@ public class Colaborador{
 			inverseJoinColumns = @JoinColumn(name = "profesion_id"))
 	private List<Profesion> profesiones;
 	
+	@OneToMany( mappedBy = "colaborador")
+	private List<Postulacion> postulaciones;
+	
 	@OneToOne(mappedBy = "colaborador")
     private CurriculumVitae curriculum;
 	
@@ -50,9 +54,11 @@ public class Colaborador{
 		
 	}
 
+	
+
 	public Colaborador(int id, String nombre, String apellido, String run, String numero_telefono, String correo,
-			Usuario usuario, List<Profesion> profesiones, CurriculumVitae curriculum) {
-		super();
+			Usuario usuario, List<Profesion> profesiones, List<Postulacion> postulaciones, CurriculumVitae curriculum) {
+		//super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -61,8 +67,11 @@ public class Colaborador{
 		this.correo = correo;
 		this.usuario = usuario;
 		this.profesiones = profesiones;
+		this.postulaciones = postulaciones;
 		this.curriculum = curriculum;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -135,6 +144,20 @@ public class Colaborador{
 	public void setCurriculum(CurriculumVitae curriculum) {
 		this.curriculum = curriculum;
 	}
+	
+	
+
+	public List<Postulacion> getPostulaciones() {
+		return postulaciones;
+	}
+
+
+
+	public void setPostulaciones(List<Postulacion> postulaciones) {
+		this.postulaciones = postulaciones;
+	}
+
+
 
 	@Override
 	public String toString() {

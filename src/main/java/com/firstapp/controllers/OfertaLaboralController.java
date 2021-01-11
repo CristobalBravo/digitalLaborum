@@ -1,5 +1,6 @@
 package com.firstapp.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.firstapp.models.Colaborador;
 import com.firstapp.models.Empleador;
 import com.firstapp.models.OfertaLaboral;
+import com.firstapp.models.Postulacion;
 import com.firstapp.models.Usuario;
 import com.firstapp.repo.ICargoRepo;
 import com.firstapp.repo.ICategoriaRepo;
@@ -65,9 +69,25 @@ public class OfertaLaboralController {
 		model.addAttribute("ofertaLaboral", ofertaLaboral );
 		model.addAttribute("titulo", "Detalle Oferta Laboral");
 		model.addAttribute("nombreButton", "Crear");
+		if(!ofertaLaboral.getPostulaciones().isEmpty()) {
+			model.addAttribute("mostrarCardPostulaciones", true);
+			List<Colaborador> postulantes = obtenerPostulantes(ofertaLaboral);
+			model.addAttribute("postulantes", postulantes);
+		}else {
+			model.addAttribute("mostrarCardPostulaciones", false);
+		}
 		return "ofertaLaboral/detalle";
 	}
 	
+	private List<Colaborador> obtenerPostulantes(OfertaLaboral ofertaLaboral) {
+		List<Postulacion> postulaciones = ofertaLaboral.getPostulaciones();
+		ArrayList<Colaborador> postulantes = new ArrayList<Colaborador>();
+		for(int i=0; i<postulaciones.size(); i++) {
+			postulantes.add(postulaciones.get(i).getColaborador());
+		}
+		return postulantes;
+	}
+
 	@GetMapping("/postular/{id}")
 	public String postular(Model model, @PathVariable int id) {
 		OfertaLaboral ofertaLaboral= ofertaLaboralRepo.findById(id).get();

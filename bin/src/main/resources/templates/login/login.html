@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<head>
+<title>Login</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	th:href="@{/css/StyleLogin.css}">
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.nicepng.com/png/detail/282-2826563_computer-clipart-thumbs-up-person-on-computer-png.png" id="icon" alt="User Icon" />
+      <h1>Digital Laborum</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form th:action="@{/login}" method="post">
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Ingresar">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" th:href="@{/registro/}">Registrarse</a>
+    </div>
+    <div th:if="${param.error}" class="alert alert-danger fadeIn fourth"  role="alert">
+    	Credenciales no valida
+    </div>
+    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+    	Cerrado de sesion exitoso
+    </div>
+
+  </div>
+</div>
+</body>
+
+
+</html>

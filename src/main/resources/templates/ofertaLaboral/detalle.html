@@ -27,7 +27,37 @@
 						</ul>
 					</div>
 				</div>
+				<br>
+				<div th:if="${mostrarCardPostulaciones == true}" class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Postulantes</div>
+							<div class="col-6 text-right"></div>
+						</div>
+					</div>
+					<div class="card-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Correo</th>
+										<th>Telefono</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="postulante : ${postulantes}">
+										<td th:text="${postulante.nombre}"></td>
+										<td th:text="${postulante.apellido}"></td>
+										<td th:text="${postulante.correo}"></td>
+										<td th:text="${postulante.numero_telefono}"></td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+				</div>
 			</div>
+			
 		</div>
 		<br>
 	</div>

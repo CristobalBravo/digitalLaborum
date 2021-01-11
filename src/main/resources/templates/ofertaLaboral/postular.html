@@ -49,6 +49,9 @@
 							<li>Descripcion: <label
 								th:text="${ofertaLaboral.descripcion}"></label></li>
 						</ul>
+						<a type="button" th:href="@{/postulacion/agregarpostulacion/}+${ofertaLaboral.id}"
+									class="btn btn-outline-warning"
+									>Agregar Postulacion</a>
 					</div>
 				</div>
 			</div>
