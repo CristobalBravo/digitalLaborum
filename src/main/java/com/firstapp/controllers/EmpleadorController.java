@@ -31,9 +31,18 @@ public class EmpleadorController {
 			model.addAttribute("bottomName", "Editar");
 			model.addAttribute("empleador", empleador);
 			model.addAttribute("mostrar", true);
+			
+			if(!empleador.getOfertasLaborales().isEmpty()) {
+				model.addAttribute("mostrarTabla", true);
+				model.addAttribute("ofertaLaborales", empleador.getOfertasLaborales());
+			}else {
+				model.addAttribute("mostrarTabla", false);
+			}
+			
 		}else {
 			model.addAttribute("bottomName", "Agregar");
 			model.addAttribute("mostrar", false);
+			model.addAttribute("mostrarTabla", false);
 		}
 		
 		return "Empleador/informacion";

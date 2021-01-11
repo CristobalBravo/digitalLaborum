@@ -22,7 +22,7 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link"  sec:authorize="hasAnyRole('EMPLEADOR', 'ADMIN')" th:href="@{/empleador/}">Empleador</a></li>
 					<li class="nav-item active"><a class="nav-link" sec:authorize="hasAnyRole('COLABORADOR', 'ADMIN')"  href="#">Colaboradores</a></li>
-					<li class="nav-item active"><a class="nav-link" href="#">Ofertas</a></li>
+					<li class="nav-item active"><a class="nav-link"  th:href="@{/ofertaLaboral/listar}">Ofertas</a></li>
 					<li class="nav-item active"><a class="nav-link" sec:authorize="hasAnyRole('ADMIN')"
 						th:href="@{/configuracion/}">Configuracion</a></li>
 				</ul>
