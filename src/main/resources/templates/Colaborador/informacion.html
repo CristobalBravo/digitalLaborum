@@ -46,6 +46,39 @@
 							<span th:if="${mostrarProfesiones==false}">Ingrese sus profesiones :)</span>
 					</div>
 				</div>
+				<br>
+				<div th:if="${mostrarCardCurriculum == true}" class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Curriculum Vitae</div>
+							<div class="col-6 text-right">
+								<a type="button" th:href="@{/colaborador/crear/curriculumvitae}"
+									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomCurriculumName}"></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<label>Idiomas</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:each="idioma : ${curriculum.idiomas}"
+								 th:text="${idioma.nombre}"></label></li>
+						</ul>
+						<label>Lenguajes de Programacion</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:each="lenguaje : ${curriculum.lenguajesProgramacion}"
+								 th:text="${lenguaje.nombre}"></label></li>
+						</ul>
+						<label>Jornada Laboral</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:text="${curriculum.jornadaLaboral.nombre}"></label></li>
+						</ul>
+						<label>Nivel Educacional</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:text="${curriculum.nivelEducacional.nombre}"></label></li>
+						</ul>
+						<span th:if="${mostrarCurriculum==false}">Cree su Curriculum Vitae</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
