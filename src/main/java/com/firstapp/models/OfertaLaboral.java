@@ -1,5 +1,7 @@
 package com.firstapp.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class OfertaLaboral {
@@ -30,6 +33,9 @@ public class OfertaLaboral {
 	@JoinColumn(name = "cargo_id", nullable = false)
 	private Cargo cargo;
 	
+	@OneToMany(mappedBy = "ofertaLaboral", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Postulacion> postulaciones;
+	
 	public OfertaLaboral() {
 	}
 
@@ -45,6 +51,14 @@ public class OfertaLaboral {
 	}
 
 
+
+	public List<Postulacion> getPostulaciones() {
+		return postulaciones;
+	}
+
+	public void setPostulaciones(List<Postulacion> postulaciones) {
+		this.postulaciones = postulaciones;
+	}
 
 	public int getId() {
 		return id;

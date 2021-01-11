@@ -83,6 +83,13 @@ public class ColaboradorController {
 				model.addAttribute("bottomCurriculumName", "Agregar Curriculum");
 				model.addAttribute("mostrarCurriculum", false);
 			}
+			if(!colaborador.getPostulaciones().isEmpty()) {
+				model.addAttribute("postulaciones", colaborador.getPostulaciones());
+				model.addAttribute("mostrarPostulaciones", true);
+				model.addAttribute("mostrarCardPostulaciones", true);
+			}else {
+				model.addAttribute("mostrarPostulaciones", false);
+			}
 		}else {
 			model.addAttribute("bottomName", "Agregar");
 			model.addAttribute("mostrar", false);
