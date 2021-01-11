@@ -5,7 +5,7 @@
 	<header th:replace="layout/layout :: header"></header>
 		<!-- contenido -->
 	<div class="container">
-		<a class="btn btn-success" href="/jornadaLaboral/crear"
+		<a class="btn btn-success" href="/configuracion/jornadaLaboral/crear"
 			style="text-align: right; align-items: flex-end;">Crear jornada laboral</a>
 		<br> <br>
 		<h3>Listado de Jornadas laborales</h3>
@@ -37,8 +37,8 @@
 				<tr th:each="jornadaLaboral : ${jornadaLaborales}">
 					<th th:text="${jornadaLaboral.nombre}"></th>
 					<td th:text="${jornadaLaboral.descripcion}"></td>
-					<td ><a th:href="@{/jornadaLaboral/editar/}+${jornadaLaboral.id}" class="btn btn-warning">Editar</a></td>
-					<td><a th:href="@{/jornadaLaboral/eliminar/}+${jornadaLaboral.id}" class="btn btn-danger">Eliminar</a></td>
+					<td ><a th:href="@{/configuracion/jornadaLaboral/editar/}+${jornadaLaboral.id}" class="btn btn-warning">Editar</a></td>
+					<td><a th:href="@{/configuracion/jornadaLaboral/eliminar/}+${jornadaLaboral.id}" class="btn btn-danger">Eliminar</a></td>
 				</tr>
 			</tbody>
 		</table>

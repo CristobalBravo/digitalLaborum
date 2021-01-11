@@ -38,13 +38,13 @@ public class JornadaLaboralController {
 	@PostMapping("/")
 	public String guardar(Model model, JornadaLaboral jornadaLaboral) {
 		jornadaLaboralRepo.save(jornadaLaboral);
-		return "redirect:/jornadaLaboral/";
+		return "redirect:/configuracion/jornadaLaboral/";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminar (Model model, @PathVariable int id) {
 		jornadaLaboralRepo.deleteById(id);
-		return "redirect:/jornadaLaboral/";
+		return "redirect:/configuracion/jornadaLaboral/";
 	}
 	
 	@GetMapping("/editar/{id}")
