@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+				<br> <a class="btn btn-primary" href="/colaborador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+				<div class="row">
+					<div class="col text-center">
+						<h1 th:text="${titulo}">></h1>
+					</div>
+				</div>
+				<form th:action="@{/colaborador/guardar/profesion}"
+					th:object="${profesion}" method="post">
+					<div class="form-group">
+						<select class="form-control" th:field="${profesion.id}"
+							id="profesionesEscogidas">
+							<option value="0">Seleccionar profesion</option>
+							<option th:each="profesion : ${profesiones}"
+								th:value="${profesion.id}" th:text="${profesion.nombre}"></option>
+						</select>
+					</div>
+					<br>
+					<span th:if="${mostrarError}" class="alert alert-danger" role="alert">Ya tiene esta profesion agregada</span>
+					<br>
+					<button class="btn btn-primary mt-4">Guardar</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

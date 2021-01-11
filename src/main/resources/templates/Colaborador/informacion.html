@@ -13,37 +13,114 @@
 							<div class="col-6">Datos del Colaborador</div>
 							<div class="col-6 text-right">
 								<a type="button" th:href="@{/colaborador/crear}"
-									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomName}"></a>
+									class="btn btn-outline-primary btn-sm mt-10"
+									th:text="${bottomName}"></a>
 							</div>
 						</div>
 					</div>
 					<div class="card-body">
 						<ul th:if="${mostrar!=false}">
-							<li>Nombre: <label th:text="${colaborador.nombre}" ></label></li>
-							<li>Apellido: <label th:text="${colaborador.apellido}" ></label></li>
-							<li>Run: <label th:text="${colaborador.run}" ></label></li>
-							<li>Telefono: <label th:text="${colaborador.numero_telefono}" ></label></li>
-							<li>Correo Electronico: <label th:text="${colaborador.correo}" ></label></li>
-							</ul>
-							<span th:if="${mostrar==false}">Inicia ingresando tus datos personales :)</span>
+							<li>Nombre: <label th:text="${colaborador.nombre}"></label></li>
+							<li>Apellido: <label th:text="${colaborador.apellido}"></label></li>
+							<li>Run: <label th:text="${colaborador.run}"></label></li>
+							<li>Telefono: <label
+								th:text="${colaborador.numero_telefono}"></label></li>
+							<li>Correo Electronico: <label
+								th:text="${colaborador.correo}"></label></li>
+						</ul>
+						<span th:if="${mostrar==false}">Inicia ingresando tus datos
+							personales :)</span>
 					</div>
 				</div>
 				<br>
-				<div class="card">
+				<div th:if="${mostrarCard == true}" class="card">
 					<div class="card-header">
 						<div class="row">
 							<div class="col-6">Profesiones del colaborador</div>
 							<div class="col-6 text-right">
 								<a type="button" th:href="@{/colaborador/crear/profesion}"
-									class="btn btn-outline-primary btn-sm mt-10" th:text="${bottomName}"></a>
+									class="btn btn-outline-primary btn-sm mt-10"
+									th:text="${bottomName}"></a>
 							</div>
 						</div>
 					</div>
 					<div class="card-body">
-						<ul th:if="${mostrarProfesiones!=false}" th:each="profesion: ${profesiones}">
-							<li>Profesion: <label th:text="${profesion.nombre}" ></label></li>
-							</ul>
-							<span th:if="${mostrarProfesiones==false}">Ingrese sus profesiones :)</span>
+						<ul th:if="${mostrarProfesiones!=false}"
+							th:each="profesion: ${profesiones}">
+							<li>Profesion: <label th:text="${profesion.nombre}"></label></li>
+						</ul>
+						<span th:if="${mostrarProfesiones==false}">Ingrese sus
+							profesiones :)</span>
+					</div>
+				</div>
+				<br>
+				<div th:if="${mostrarCardCurriculum == true}" class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Curriculum Vitae</div>
+							<div class="col-6 text-right">
+								<a type="button" th:href="@{/colaborador/crear/curriculumvitae}"
+									class="btn btn-outline-primary btn-sm mt-10"
+									th:text="${bottomCurriculumName}"></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-body">
+						<label>Idiomas</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:each="idioma : ${curriculum.idiomas}"
+								th:text="${idioma.nombre}"></label></li>
+						</ul>
+						<label>Lenguajes de Programación</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label
+								th:each="lenguaje : ${curriculum.lenguajesProgramacion}"
+								th:text="${lenguaje.nombre}"></label></li>
+						</ul>
+						<label>Jornada Laboral</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:text="${curriculum.jornadaLaboral.nombre}"></label></li>
+						</ul>
+						<label>Nivel Educacional</label>
+						<ul th:if="${mostrarCurriculum!=false}">
+							<li><label th:text="${curriculum.nivelEducacional.nombre}"></label></li>
+						</ul>
+						<span th:if="${mostrarCurriculum==false}">Cree su
+							Curriculum Vitae</span>
+					</div>
+				</div>
+				<br>
+				<div th:if="${mostrarCardPostulaciones == true}" class="card">
+					<div class="card-header">
+						<div class="row">
+							<div class="col-6">Postulaciones del colaborador</div>
+							<div class="col-6 text-right"></div>
+						</div>
+					</div>
+					<div class="card-body">
+						<label>Postulaciones</label>
+						<ul th:if="${mostrarPostulaciones!=false}">
+							<li><label th:each="postulacion : ${postulaciones}"
+								th:text="${postulacion.ofertaLaboral.nombre}"></label></li>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Nombre Oferta</th>
+										<th>Fecha de Postulacion</th>
+										<th>Descripción Oferta</th>
+										<th>Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="postulacion : ${postulaciones}">
+										<th th:text="${postulacion.ofertaLaboral.nombre}"></th>
+										<td th:text="${postulacion.date}"></td>
+										<th th:text="${postulacion.ofertaLaboral.descripcion}"></th>
+										<td th:if="${postulacion.ofertaLaboral.estado == 1}"><button class="btn btn-success" disabled>Disponible</button></td>
+										<td th:if="${postulacion.ofertaLaboral.estado == 0}"><button class="btn btn-danger" disabled>No Disponible</button></td>
+									</tr>
+								</tbody>
+							</table>
 					</div>
 				</div>
 			</div>

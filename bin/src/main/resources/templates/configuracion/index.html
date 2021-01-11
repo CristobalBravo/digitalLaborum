@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container">
+<h3>Listado de opciones a configurar</h3>
+<hr>
+<br>
+<div class="list-group">
+  <a th:href="@{/configuracion/categoria/}" class="list-group-item list-group-item-action">Categorias</a>
+  <a th:href="@{/configuracion/cargo/}" class="list-group-item list-group-item-action">Cargo</a>
+  <a th:href="@{/configuracion/jornadaLaboral/}" class="list-group-item list-group-item-action">Jornada Laboral</a>
+  <a th:href="@{/configuracion/nivelEducacional/}" class="list-group-item list-group-item-action">Nivel Educacional</a>
+  <a th:href="@{/configuracion/profesion/}"  class="list-group-item list-group-item-action">Profesion</a>
+   <a th:href="@{/configuracion/lenguajeProgramacion/}"  class="list-group-item list-group-item-action">Lenguaje de Programacion</a>
+   <a th:href="@{/configuracion/idioma/}"  class="list-group-item list-group-item-action">Idioma</a>
+   <a th:href="@{/configuracion/rol/}"  class="list-group-item list-group-item-action">Roles</a>
+</div>
+
+
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

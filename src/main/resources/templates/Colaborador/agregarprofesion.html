@@ -5,10 +5,16 @@
 	<header th:replace="layout/layout :: header"></header>
 	<!-- contenido -->
 	<div class="container">
+		<div class="row"> 
+			<div class="col">
+				<br> <a class="btn btn-outline-primary" href="/colaborador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+			</div>
+		</div>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
-				<br> <a class="btn btn-primary" href="/colaborador/"
-					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br> 
 				<br>
 				<div class="row">
 					<div class="col text-center">
@@ -20,15 +26,16 @@
 					<div class="form-group">
 						<select class="form-control" th:field="${profesion.id}"
 							id="profesionesEscogidas">
-							<option value="0">Seleccionar profesion</option>
+							<option value="0">Seleccionar profesión</option>
 							<option th:each="profesion : ${profesiones}"
 								th:value="${profesion.id}" th:text="${profesion.nombre}"></option>
 						</select>
 					</div>
 					<br>
-					<span th:if="${mostrarError}" class="alert alert-danger" role="alert">Ya tiene esta profesion agregada</span>
+					<span th:if="${mostrarError}" class="alert alert-danger" role="alert">Ya tiene esta profesión agregada</span>
 					<br>
-					<button class="btn btn-primary mt-4">Guardar</button>
+					<br>
+					<button class="btn btn-primary btn-lg btn-block">Guardar</button>
 				</form>
 				
 			</div>

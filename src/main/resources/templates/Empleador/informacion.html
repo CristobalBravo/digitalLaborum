@@ -19,17 +19,69 @@
 					</div>
 					<div class="card-body">
 						<ul th:if="${mostrar!=false}">
-							<li>Nombre: <label th:text="${empleador.nombre}" ></label></li>
-							<li>Rut: <label th:text="${empleador.rut}" ></label></li>
-							<li>Razón social: <label th:text="${empleador.razon_social}" ></label></li>
-							<li>Dirección: <label th:text="${empleador.direccion}" ></label></li>
-							<li>Correo Electrónico: <label th:text="${empleador.email}" ></label></li>
-							<li>Descripción: <label th:text="${empleador.descripcion}" ></label></li>
-							</ul>
-							<span th:if="${mostrar==false}">Inicia ingresando los datos de tu empresa :)</span>
+							<li>Nombre: <label th:text="${empleador.nombre}"></label></li>
+							<li>Rut: <label th:text="${empleador.rut}"></label></li>
+							<li>Razon social: <label th:text="${empleador.razon_social}"></label></li>
+							<li>Direccion: <label th:text="${empleador.direccion}"></label></li>
+							<li>Correo Electronico: <label th:text="${empleador.email}"></label></li>
+							<li>Descripcion: <label th:text="${empleador.descripcion}"></label></li>
+							<div class="text-center">
+							<a class="btn btn-success" href="/ofertaLaboral/crear"
+								style="text-align: right; align-items: flex-end;">Crear
+								oferta laboral</a>
+							</div>
+						</ul>
+						<span th:if="${mostrar==false}">Inicia ingresando los datos
+							de tu empresa :)</span>
 					</div>
 				</div>
 			</div>
+		</div>
+		<br>
+		<div class="row" th:if="${mostrarTabla==true}">
+			<h3>Listado de Oferta Laboral</h3>
+			<hr>
+			<br>
+			<form th:action="@{/ofertaLaboral/buscar}" method="post">
+				<div class="row">
+					<div class="col-4"></div>
+					<div class="col-6">
+						<input type="text" class="form-control" name="nombre" id="nombre"
+							placeholder="Ingrese el nombre">
+					</div>
+					<div class="col-2">
+						<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</div>
+					<br>
+			</form>
+			<br>
+			<br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Descripci&oacute;n</th>
+						<th>Estado</th>
+						<th>Detalle</th>
+						<th>Editar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ofertaLaboral : ${ofertaLaborales}">
+						<th th:text="${ofertaLaboral.nombre}"></th>
+						<td th:text="${ofertaLaboral.descripcion}"></td>
+						<td th:if="${ofertaLaboral.estado==1}">Disponible</td>
+						<td th:if="${ofertaLaboral.estado==0}">Cerrado</td>
+						<td><a
+							th:href="@{/ofertaLaboral/detalle/}+${ofertaLaboral.id}"
+							class="btn btn-info">Ver</a></td>
+						<td><a
+							th:href="@{/ofertaLaboral/editar/}+${ofertaLaboral.id}"
+							class="btn btn-warning">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 

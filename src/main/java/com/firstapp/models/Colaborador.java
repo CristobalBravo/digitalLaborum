@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.ManyToAny;
@@ -43,6 +44,12 @@ public class Colaborador{
 			inverseJoinColumns = @JoinColumn(name = "profesion_id"))
 	private List<Profesion> profesiones;
 	
+	@OneToMany( mappedBy = "colaborador")
+	private List<Postulacion> postulaciones;
+	
+	@OneToOne(mappedBy = "colaborador")
+    private CurriculumVitae curriculum;
+	
 	public Colaborador() {
 		
 	}
@@ -50,7 +57,8 @@ public class Colaborador{
 	
 
 	public Colaborador(int id, String nombre, String apellido, String run, String numero_telefono, String correo,
-			Usuario usuario, List<Profesion> profesiones) {
+			Usuario usuario, List<Profesion> profesiones, List<Postulacion> postulaciones, CurriculumVitae curriculum) {
+		//super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -59,6 +67,8 @@ public class Colaborador{
 		this.correo = correo;
 		this.usuario = usuario;
 		this.profesiones = profesiones;
+		this.postulaciones = postulaciones;
+		this.curriculum = curriculum;
 	}
 
 
@@ -118,12 +128,33 @@ public class Colaborador{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public List<Profesion> getProfesiones() {
 		return profesiones;
 	}
+
 	public void setProfesiones(List<Profesion> profesiones) {
 		this.profesiones = profesiones;
+	}
+
+	public CurriculumVitae getCurriculum() {
+		return curriculum;
+	}
+
+	public void setCurriculum(CurriculumVitae curriculum) {
+		this.curriculum = curriculum;
+	}
+	
+	
+
+	public List<Postulacion> getPostulaciones() {
+		return postulaciones;
+	}
+
+
+
+	public void setPostulaciones(List<Postulacion> postulaciones) {
+		this.postulaciones = postulaciones;
 	}
 
 
@@ -131,10 +162,12 @@ public class Colaborador{
 	@Override
 	public String toString() {
 		return "Colaborador [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", run=" + run
-				+ ", numero_telefono=" + numero_telefono + ", correo=" + correo + ", usuario=" + usuario + "]";
+				+ ", numero_telefono=" + numero_telefono + ", correo=" + correo + ", usuario=" + usuario
+				+ ", profesiones=" + profesiones + ", curriculum=" + curriculum + "]";
 	}
+
 	
-	
+
 	
 	
 }

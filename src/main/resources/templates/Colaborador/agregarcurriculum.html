@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row"> 
+			<div class="col">
+				<a class="btn btn-outline-primary" href="/colaborador/"
+					style="text-align: right; align-items: flex-end;">Volver</a>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+				<br> 
+				<br>
+				<div class="row">
+					<div class="col text-center">
+						<h1 th:text="${titulo}">></h1>
+					</div>
+				</div>
+				<form th:action="@{/colaborador/guardar/curriculum}"
+					th:object="${curriculum}" method="post">
+					<div class="form-group">
+					<label>Seleccione Idioma</label>
+						<select class="form-control" th:field="${curriculum.idiomas}"
+							id="idiomaEscogido">
+							<option th:each="idioma : ${idiomasList}"
+								th:value="${idioma.id}" th:text="${idioma.nombre}"></option>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+					<label>Seleccione Lenguaje de Programación</label>
+						<select class="form-control" th:field="${curriculum.lenguajesProgramacion}"
+							id="lenguajeEsogido">
+							<option th:each="lenguaje : ${lenguajesList}"
+								th:value="${lenguaje.id}" th:text="${lenguaje.nombre}"></option>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+					<label>Seleccione Jornada Laboral</label>
+						<select class="form-control" th:field="${curriculum.jornadaLaboral}"
+							id="jornadaLaboral">
+							<option th:each="jornada : ${jornadaLaboralList}"
+								th:value="${jornada.id}" th:text="${jornada.nombre}"></option>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+					<label>Seleccione Nivel Educacional</label>
+						<select class="form-control" th:field="${curriculum.nivelEducacional}"
+							id="nivelEducacional">
+							<option th:each="nivelEducacional : ${nivelEducacionalList}"
+								th:value="${nivelEducacional.id}" th:text="${nivelEducacional.nombre}"></option>
+						</select>
+					</div>
+					<br>
+					<span th:if="${mostrarError}" class="alert alert-danger" role="alert">Ya tiene esta profesión agregada</span>
+					
+					<button class="btn btn-primary btn-lg btn-block">Guardar</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

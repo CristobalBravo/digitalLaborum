@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<!-- contenido -->
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-lg-8 col-xl-6">
+				<br> <a class="btn btn-primary" href="/empleador/"
+					style="text-align: right; align-items: flex-end;">Volver</a> <br>
+				<br>
+				<div class="row">
+					<div class="col text-center">
+						<h1 th:text="${titulo}">></h1>
+					</div>
+				</div>
+				<form th:action="@{/ofertaLaboral/}" th:object="${ofertaLaboral}"
+					method="post">
+					<input type="hidden" th:field="*{id}">
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Nombre: </label>
+							<input class="form-control" th:field="*{nombre}"
+								name="nombre"></input>
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+						<label>Categoria: </label> <br>
+							<select th:field="*{categoria}" class="form-control">
+								<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
+									th:text="${categoria.nombre}"></option>
+							</select>
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+						<label>Cargo: </label> <br>
+							<select th:field="*{cargo}" class="form-control">
+								<option th:each="cargo : ${cargos}" th:value="${cargo.id}"
+									th:text="${cargo.nombre}"></option>
+							</select>
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Estado de postulacion </label> <br>
+							<div class="text-center">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										th:field="*{estado}" name="inlineRadioOptions"
+										id="inlineRadio1" th:value="1"> <label
+										class="form-check-label" for="inlineRadio1">Disponible</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio"
+										name="inlineRadioOptions" id="inlineRadio2" th:value="0">
+									<label class="form-check-label" for="inlineRadio2">Cerrado</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row align-items-center mt-4">
+						<div class="col">
+							<label>Descripcion: </label>
+							<textarea class="form-control" th:field="*{descripcion}"
+								name="descripcion"></textarea>
+						</div>
+					</div>
+					<button class="btn btn-primary mt-4">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
